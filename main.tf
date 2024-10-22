@@ -1,9 +1,3 @@
-provider "google" {
- 
-}
-
-data "google_project" "project" {
-}
 
 locals {
   current_time_utc = timestamp()                 # Gets the current time in UTC
@@ -18,6 +12,7 @@ resource "google_project_iam_binding" "project_roles" {
 
   members = var.project_roles[each.key]  # The list of members for that role
 }
+
 
 resource "google_billing_account_iam_binding" "billing_roles" {
   for_each = var.billing_roles
