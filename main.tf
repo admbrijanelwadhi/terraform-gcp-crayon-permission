@@ -23,7 +23,7 @@ resource "google_billing_account_iam_binding" "billing_roles" {
   members = var.billing_roles[each.key]  # The list of members for that role
 }
 
-resource "google_organization_iam_binding" "project_roles" {
+resource "google_organization_iam_binding" "org_roles" {
   for_each = var.organization_roles
 
   org_id =  var.organization_id
